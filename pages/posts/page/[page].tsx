@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) =>{
   
   const currentPage = context.params?.page;
-  const postsByPage = await getPostsByPage(parseInt(currentPage?.toString(),10));
+  const postsByPage = await getPostsByPage(parseInt(currentPage?.toString() || "",10));
 
   const numberOfPage = await getNumberOfPages();
 
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (context) =>{
   }
 }
 
-const BlogPageList = ({ postsByPage, numberOfPage ,allTags}) => {
+const BlogPageList = ({ postsByPage, numberOfPage ,allTags}: any) => {
   return (
     <div className='container h-full w-full mx-auto font-mono'>
 
@@ -50,7 +50,7 @@ const BlogPageList = ({ postsByPage, numberOfPage ,allTags}) => {
     <main className='container w-full mt-16'>
       <h1 className='text-5xl font-medium text-center mb-16'>Notion Blog🚀</h1>
       <section className='sm:grid grid-cols-2 w-5/6 gap-3 mx-auto'>
-      {postsByPage.map((post) =>
+      {postsByPage.map((post: any) =>
         <div className='' key={post.id}>
           <SinglePost 
           title = {post.title}
@@ -64,7 +64,7 @@ const BlogPageList = ({ postsByPage, numberOfPage ,allTags}) => {
       )}
 
       </section>
-      <Pagenation numberOfPage={numberOfPage} />
+      <Pagenation numberOfPage={numberOfPage}/>
       <Tag tags={allTags}></Tag>
     </main>
     </div>
