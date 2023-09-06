@@ -36,10 +36,10 @@ export const getAllPosts = async() => {
   });
 };
 
-const getPageMetaData = (post) =>{
+const getPageMetaData = (post: any) =>{
   
-  const getTags = (tags) =>{
-    const allTags = tags.map((tag) =>{
+  const getTags = (tags: any) =>{
+    const allTags = tags.map((tag: any) =>{
       return tag.name;
     })
 
@@ -56,9 +56,9 @@ const getPageMetaData = (post) =>{
   }
 };
 
-export const getSinglePost = async (slug) =>{
+export const getSinglePost = async (slug: string) =>{
   const responce =await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
+    database_id: process.env.NOTION_DATABASE_ID || "",
     filter: {
       property: "Slug",
       formula:{
