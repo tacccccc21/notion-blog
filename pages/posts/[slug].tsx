@@ -18,7 +18,7 @@ export const getStaticPaths = async () =>{
   }
 }
 
-export const getStaticProps = async ({ params }) =>{
+export const getStaticProps = async ({ params }: any) =>{
   const post = await getSinglePost(params.slug);
 
   return{
@@ -29,7 +29,7 @@ export const getStaticProps = async ({ params }) =>{
   }
 }
 
-const Post = ({post}) => {
+const Post = ({post}: any) => {
 
   return (
     <section className='container lg:px-2 h-screen lg:w-2/5 mx-auto mt-20'>
