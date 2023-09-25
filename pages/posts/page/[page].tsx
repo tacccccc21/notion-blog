@@ -11,7 +11,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const numberOfPage = await getNumberOfPages();
 
-  const allTags = await getAllTags();
+  const allTags:any = await getAllTags();
 
   let params:any = [];
   for(let i = 1; i <= numberOfPage; i++){
