@@ -11,7 +11,7 @@ const Pagenation = (props: Props) => {
 
   const {numberOfPage, tag} = props;
 
-  let pages: any = [];
+  let pages: any[] = [];
   for(let i = 1; i <= numberOfPage; i++){
     pages.push(i)
   }
