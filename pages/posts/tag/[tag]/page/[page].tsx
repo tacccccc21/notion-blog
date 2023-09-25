@@ -8,7 +8,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 const allTags = await getAllTags();
-let params: any = [];
+let params= [];
 
 await Promise.all(
     allTags.map((tag: string) => {
