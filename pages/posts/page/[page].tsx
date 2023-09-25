@@ -13,7 +13,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const allTags = await getAllTags();
 
-  let params = [];
+  let params:any = [];
   for(let i = 1; i <= numberOfPage; i++){
     params.push({params:{page: i.toString()}})
   }
