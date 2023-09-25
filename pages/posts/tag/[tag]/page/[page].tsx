@@ -20,10 +20,6 @@ await Promise.all(
     )
 );
 
-
-
-
-
   return {
     paths: params,
     fallback: "blocking",
