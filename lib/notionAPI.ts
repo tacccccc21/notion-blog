@@ -134,7 +134,7 @@ export const getNumberOfPagesByTag = async (tagName: string) =>{
 export const getAllTags = async() =>{
   const allPosts = await getAllPosts();
   
-  const allTagsDuplicationList = allPosts.flatMap((post)=> post.tags)
+  const allTagsDuplicationList = allPosts.flatMap((post:any)=> post.tags)
   const set = new Set(allTagsDuplicationList);
   const allTagsList = Array.from(set);
 
