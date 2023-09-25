@@ -31,8 +31,8 @@ await Promise.all(
  }
 
 export const getStaticProps: GetStaticProps = async (context) =>{
-  const currentPage = context.params?.page;
-  const currentTag = context.params?.tag;
+  const currentPage: any = context.params?.page;
+  const currentTag: any = context.params?.tag;
 
   const upperCaseCurrentTag = currentTag.charAt(0).toUpperCase() + currentTag.slice(1)
 
