@@ -23,8 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: params,
     // paths: Array<string | { params: { [key: string]: string } }>,
     fallback: "blocking",
-    allTags,
-    
+    allTags: [],
   }
  }
 

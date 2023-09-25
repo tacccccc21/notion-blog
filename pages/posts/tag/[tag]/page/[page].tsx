@@ -58,7 +58,7 @@ const BlogTagPageList = ({ numberOfPagesByTag, posts, currentTag}) => {
     <main className='container w-full mt-16'>
       <h1 className='text-5xl font-medium text-center mb-16'>Notion Blog🚀</h1>
       <section className='sm:grid grid-cols-2 w-5/6 gap-3 mx-auto'>
-      {posts.map((post) =>
+      {posts.map((post: any) =>
         <div className='' key={post.title}>
           <SinglePost 
           title = {post.title}
