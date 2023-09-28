@@ -22,7 +22,7 @@ await Promise.all(
 
   return {
     paths: params,
-    fallback: true,
+    fallback: false,
   }
  }
 
