@@ -45,6 +45,8 @@ const getPageMetaData = (post: any) =>{
 
     return allTags;
   }
+  let title:string
+  
 
   return{
     post,
