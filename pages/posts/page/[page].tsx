@@ -38,11 +38,13 @@ export const getStaticProps: GetStaticProps = async (context) =>{
   const postsByPage = await getPostsByPage(parseInt(currentPage?.toString() || "",10));
 
   const numberOfPage = await getNumberOfPages();
+  const allTags = await getAllTags();
 
   return{
     props:{
       postsByPage,
       numberOfPage,
+      allTags
     },
     revalidate: 60,
   }
