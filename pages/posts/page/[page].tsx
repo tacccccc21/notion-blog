@@ -11,7 +11,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const numberOfPage = await getNumberOfPages();
 
-  const allTags = await getAllTags();
+  // const allTags = await getAllTags();
 
 
  
@@ -27,8 +27,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: params,
     // paths : Array<string | { params: { [key: string]: string } }>,
-    fallback: "blocking",
+    fallback: false,
     // allTags,
+
   }
  }
 
