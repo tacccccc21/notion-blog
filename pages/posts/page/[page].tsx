@@ -15,7 +15,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
  
-  let params:any = [];
+  let params:any[] = [];
   
   for(let i:number = 1; i <= numberOfPage; i++){
     // params.push({params:{page: i.toString()}})
