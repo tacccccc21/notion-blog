@@ -3,9 +3,7 @@ import SinglePost from '@/components/Post/SinglePost';
 import Tag from '@/components/Tag/Tag';
 import { getAllPosts, getAllTags, getNumberOfPages, getPagePostsForTopPage, getPostsByPage } from '@/lib/notionAPI'
 import { GetStaticPaths, GetStaticProps } from 'next';
-// import { Inter } from 'next/font/google'
 
-// const inter = Inter({ subsets: ['latin'] })
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const numberOfPage = await getNumberOfPages();
@@ -42,8 +40,8 @@ export const getStaticProps: GetStaticProps = async (context) =>{
 
 const BlogPageList = ({ postsByPage, numberOfPage ,allTags}: any) => {
   return (
-    <div className='container h-full w-full mx-auto font-mono'>
-    <main className='container w-full mt-16'>
+    <div className='container h-full w-full mx-auto font-mono mt-16'>
+    <main className='container w-full pt-16'>
       <h1 className='text-5xl font-medium text-center mb-16'>Notion Next Blog</h1>
       <section className='sm:grid grid-cols-2 w-5/6 gap-3 mx-auto'>
       {postsByPage.map((post: any) =>

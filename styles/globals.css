@@ -26,3 +26,7 @@ p{
   line-height: 1.8rem;
 }
 
+.max-w-100{
+  width: 100%;
+  max-width: 100%;
+}
