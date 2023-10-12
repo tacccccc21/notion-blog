@@ -39,7 +39,7 @@ const Post = ({post}: any) => {
       <br />
       
       {post.metadata.tags.map((tag: string, index: number) =>(
-        <Link href={`/posts/tag/${tag}/page/1`}>
+        <Link href={`/posts/tag/${tag}/page/1`} key={index}>
           <p className='bg-gray-400 text-white rounded-sm font-medium mt-2 px-2 inline-block mr-2' key={index}>{tag}</p>
         </Link>
       ))}

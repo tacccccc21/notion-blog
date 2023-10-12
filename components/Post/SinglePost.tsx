@@ -20,11 +20,6 @@ const SinglePost = (props: Props) => {
         <div className='lg:flex items-center gap-3 md:block '>
           <h2 className='text-gray-600 text-2xl mb-2'>{title}</h2>
           <div className='text-gray-600 mb-2'>{date}</div>
-          {/* {tags.map((tag: string, index: number) => 
-          <Link href={`/posts/tag/${tag}/page/1`}>
-            <span className='text-gray-600 bg-gray-300 p-1 rounded-sm mr-3' key={index}>{tag}</span>
-          </Link>
-          )} */}
         </div>
         <p className='text-gray-600'>
           {description}
@@ -35,15 +30,9 @@ const SinglePost = (props: Props) => {
         <div className='lg:flex items-center gap-3 md:block '>
           <h2 className='text-gray-600 text-2xl mb-2'>{title}</h2>
           <div className='text-gray-600'>{date}</div>
-          {/* {tags.map((tag:string, index: number) => 
-          <Link href={`/posts/tag/${tag}/page/1`}>
-            <span className='text-gray-600 bg-gray-300 p-1 rounded-sm mr-1' key={index}>{tag}</span>
-          </Link>
-          )} */}
         </div>
         <p className='text-gray-600'>
           {description}
-
         </p>
       </section>
       )}

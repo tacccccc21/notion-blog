@@ -30,7 +30,7 @@ export default function Home({ fourPosts ,allTags}: any) {
       <h1 className='text-5xl font-medium text-center mb-16'>Notion Blog</h1>
       
         {fourPosts.map((post: any) =>
-        <div className='mx-4' key={post.id}>
+        <div className='mx-4' key={post.title}>
         <SinglePost 
         title = {post.title}
         description = {post.description}
@@ -38,6 +38,7 @@ export default function Home({ fourPosts ,allTags}: any) {
         tags = { post.tags }
         slug = {post.slug}
         isPagenationPage={false}
+        
         ></SinglePost>
               </div>
         )}
