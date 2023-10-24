@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rotom Phone (Pokémon Sword & Shield)
+* source:	https://sketchfab.com/3d-models/rotom-phone-pokemon-sword-shield-42023f2c296f48ff9095cfa8d1d110b3
+* author:	rtql8d (https://sketchfab.com/rtql8d)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rotom Phone (Pokémon Sword & Shield)" (https://sketchfab.com/3d-models/rotom-phone-pokemon-sword-shield-42023f2c296f48ff9095cfa8d1d110b3) by rtql8d (https://sketchfab.com/rtql8d) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
