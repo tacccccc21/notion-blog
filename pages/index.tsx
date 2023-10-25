@@ -4,6 +4,7 @@ import Tag from '@/components/Tag/Tag';
 import { getAllPosts, getAllTags, getPagePostsForTopPage } from '@/lib/notionAPI'
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { endianness } from 'os';
 import { number } from 'prop-types';
 import { useEffect } from 'react';
@@ -31,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () =>{
 export default function Home({ fourPosts ,allTags}: any) {
   let canvas: HTMLCanvasElement;
   let model: THREE.Group;
-  // let lastScrollY = 0;
+  const router = useRouter();
   useEffect(() => {
   canvas = document.getElementById('canvas') as HTMLCanvasElement;
 
@@ -39,8 +40,6 @@ export default function Home({ fourPosts ,allTags}: any) {
       width: innerWidth,
       height: innerHeight,
     }
-
- 
 
   // scene
   const scene: THREE.Scene = new THREE.Scene()
@@ -52,7 +51,7 @@ export default function Home({ fourPosts ,allTags}: any) {
     0.1,
     1000,
     )
-    camera.position.set(0,0,1.5);
+    camera.position.set(0,0,2.5);
 
   // renderer
   const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer({
@@ -79,11 +78,6 @@ export default function Home({ fourPosts ,allTags}: any) {
    // スクロール量
   let lastScrollTop = 0;
 
-  
-
-
-
-
   // スクロールアニメーション
   const animationScripts: any[] = []
 
@@ -91,6 +85,7 @@ export default function Home({ fourPosts ,allTags}: any) {
     start: 0,
     end: 40,
     handleScroll() {
+
   const scrollTop = window.scrollY;
   const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
   // const scrollPercentage = scrollTop / totalHeight;
@@ -98,8 +93,10 @@ export default function Home({ fourPosts ,allTags}: any) {
   const scrollPercentage = Math.min(scrollTop / maxScrollForRotation, 1);
 
   // Y軸に基づいて、0から180度までの回転を計算
-  const targetRotationY = scrollPercentage * 225;
-  const targetRotationZ = scrollPercentage * 90;   // Z軸での回転: 0から90度
+  const targetRotationY = scrollPercentage * 360;
+  const targetRotationZ = scrollPercentage * 360;   // Z軸での回転: 0から90度
+
+  
 
     // 70% to 100%: For moving the model
   const scrollPercentageForMovement = (scrollTop - maxScrollForRotation) / (totalHeight - maxScrollForRotation);
@@ -115,7 +112,6 @@ export default function Home({ fourPosts ,allTags}: any) {
       model.position.x += targetPositionX;
       model.position.y += targetPositionY;
       if (model) {
-        // Set the model's position based on the calculated target positions
         model.position.set(targetPositionX, targetPositionY, targetPositionZ);
       }
     }
@@ -134,22 +130,25 @@ export default function Home({ fourPosts ,allTags}: any) {
 
 
   const tick = () =>{
-    renderer.render(scene, camera);
     playScrollAnimation()
+    renderer.render(scene, camera);
+    
     requestAnimationFrame(tick);
   };
   tick();
 
-  },[])
+  },[router])
 
 
   return (
     <>
       <canvas id='canvas' className='bg-white w-auto fixed top-0 left-0 -z-10'></canvas>
-      <div className='h-screen w-screen'></div>
+      <div className='h-screen w-screen  flex items-center justify-center'>
+        <h1 className='mt-60 text-5xl font-medium'>portfolio</h1>
+      </div>
       <div className='container h-full w-full mx-auto font-mono pt-16'>
         <main className='container w-full pt-16'>
-          <h1 className='text-5xl font-medium text-center mb-16'>T-Music</h1>
+          <h1 className='text-5xl font-medium text-center mb-16'>T-Hobby</h1>
             {fourPosts.map((post: any) =>
             <div className='mx-4' key={post.title}>
             <SinglePost 
@@ -166,6 +165,7 @@ export default function Home({ fourPosts ,allTags}: any) {
           <Link href="/posts/page/1" className='mb-6 lg:w-1/2 mx-auto rounded-sm px-5 block text-right'>More</Link>
           <Tag tags={allTags}></Tag>
         </main>
+
       </div>
     </>
   )

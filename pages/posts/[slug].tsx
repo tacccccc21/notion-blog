@@ -32,7 +32,7 @@ export const getStaticProps = async ({ params }: any) =>{
 const Post = ({post}: any) => {
 
   return (
-    <section className='px-5 container lg:px-2 h-screen lg:w-2/5 mx-auto'>
+    <section className='px-5 container lg:px-2 min-h-full lg:w-2/5 mx-auto postLayout'>
       <h2 className='w-full text-2xl font-medium'>{post.metadata.title}</h2>
       <div className='border-b-2 w-1/3 mt-1 border-sky-100'></div>
       <span className='text-gray-500'>posted data at {post.metadata.date}</span>
@@ -64,7 +64,7 @@ const Post = ({post}: any) => {
       }
         }}
         ></ReactMarkdown>
-        <Link href="/" className='pb-20 block m-3'>
+        <Link href="/" className='block m-3'>
           <span>Homeに戻る</span>
         </Link>
       </div>
