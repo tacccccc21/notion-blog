@@ -36,6 +36,14 @@ export default function Home({ fourPosts ,allTags}: any) {
   useEffect(() => {
   canvas = document.getElementById('canvas') as HTMLCanvasElement;
 
+  let scrollTop = 0;
+  let targetPositionX = 0
+  let targetPositionY = 0
+  let targetPositionZ = 0
+  let targetRotationY = 0
+  let targetRotationZ = 0
+  let maxScrollForRotation = 0;
+
     const sizes = {
       width: innerWidth,
       height: innerHeight,
@@ -128,11 +136,31 @@ export default function Home({ fourPosts ,allTags}: any) {
     })
   }
 
-
+  let time = 0
   const tick = () =>{
     playScrollAnimation()
+    time += 0.015;
+    const yOffset = Math.sin(time) * 0.1; // 上下のアニメーション
+    const xOffset = Math.sin(time * 2) * THREE.MathUtils.degToRad(3); // 左右のアニメーション
+    if (model) {
+
+
+        
+        if (scrollTop > maxScrollForRotation) {
+            model.position.set(
+                targetPositionX + xOffset,
+                targetPositionY + yOffset,
+                targetPositionZ
+            );
+        } else {
+            // スクロールの影響を受けない場合はアニメーションのみを適用
+            model.position.y = yOffset;
+            model.position.x = xOffset;
+            
+        }
+    }
+
     renderer.render(scene, camera);
-    
     requestAnimationFrame(tick);
   };
   tick();
@@ -148,7 +176,6 @@ export default function Home({ fourPosts ,allTags}: any) {
       </div>
       <div className='container h-full w-full mx-auto font-mono pt-16'>
         <main className='container w-full pt-16'>
-          <h1 className='text-5xl font-medium text-center mb-16'>T-Hobby</h1>
             {fourPosts.map((post: any) =>
             <div className='mx-4' key={post.title}>
             <SinglePost 
